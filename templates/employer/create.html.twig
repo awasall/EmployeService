@@ -1,0 +1,22 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    <h1>Ajouter des employers</h1>
+    {{form_start(formEmployer)}}
+    {{form_row(formEmployer.matricule,{'attr':{'placeholder':"Votre matricule"}})}}
+    {{form_row(formEmployer.prenom,{'attr':{'placeholder':"Votre Prénom"}})}}
+    {{form_row(formEmployer.nom,{'attr':{'placeholder':"Votre nom"}})}}
+    {{form_row(formEmployer.datenaissance,{'attr':{'placeholder':"Votre date de naissance"}})}}
+    {{form_row(formEmployer.salaire,{'attr':{'placeholder':"Votre salaire"}})}}
+        {{form_row(formEmployer.service)}}
+
+<button type="submit" name="" id="" class="btn btn-primary" btn-lg btn-block">
+{% if editMode %}
+Modifier Employer
+{% else %}
+ Ajouter Employer
+ {% endif %}
+
+ </button>
+
+{{form_end(formEmployer)}}
+{% endblock %}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>
+            {% block title %}Welcome!
+            {% endblock %}
+        </title>
+        <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/darkly/bootstrap.min.css" integrity="sha384-w+8Gqjk9Cuo6XH9HKHG5t5I1VR4YBNdPt/29vwgfZR485eoEJZ8rJRbm3TR32P6k" rel="stylesheet"> 
+          <link  href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+  {% block stylesheets %}{% endblock %}
+        </head>
+        <body>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                <a class="navbar-brand" href="/">Services employers</a>
+                <button aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarColor01" data-toggle="collapse" type="button">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarColor01">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="employer/create">Ajouter</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/employer">Lister</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </nav>
+            <div class="container"> {% block body %}{% endblock %}
+
+                </div>
+
+                {% block javascripts %}{% endblock %}
+                <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+                 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+                <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+                <script>
+                    $(document).ready(function () {
+                        $('#example').DataTable();
+                    });
+                </script>
+            </body>
+        </html>

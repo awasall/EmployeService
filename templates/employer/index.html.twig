@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+{% block title %}Hello ListeController!{% endblock %}
+{% block body %}
+<h1> Liste des employés</h1>
+<table id="example" class="table table-hover">
+    <thead>
+        <tr class="table-primary">
+            <th>#</th>
+            <th>Matricule</th>
+            <th>Prenom</th>
+            <th>Nom</th>
+            <th>DateNaissance</th>
+            <th>Salaire</th>
+            <th>Service</th>
+            <th>Action</th>
+            <th>Action</th>
+
+        </tr>
+    </thead>
+    <tbody>
+    {% for employer in employers %}
+        <tr>
+            <td scope="row">{{ employer.id }}</td>
+             <td>{{ employer.matricule }}</td>
+            <td>{{ employer.prenom }}</td>
+            <td>{{ employer.nom}}</td>
+             <td>{{ employer.datenaissance | date ('d/m/Y') }}</td>
+            <td>{{ employer.salaire }}</td>
+            <td>{{ employer.service.libelle }}</td>
+            <td><a name="" id="" class="btn btn-primary" href="{{path('employeredit', {'id':employer.id})}}" role="button">Modifier</a></td>             
+
+            <td><a name="" id="" class="btn btn-danger" href="{{path('delete', {'id':employer.id})}}" role="button">Supprimer</a></td>             
+        </tr>
+        {% endfor %}
+       
+    </tbody>
+</table>
+{% endblock %}
+
